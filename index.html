@@ -1,33 +1,44 @@
-<!-- Display the countdown timer in an element -->
-<p id="demo"></p>
 
-<script>
-// Set the date we're counting down to
-var countDownDate = new Date("Jan 1, 2022 00:00:00").getTime();
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>New Year Countdown</title>
+  </head>
+  <body>
+    <div id="year" class="year"></div>
 
-// Update the count down every 1 second
-var x = setInterval(function() {
+    <h1>New Year Countdown</h1>
 
-  // Get today's date and time
-  var now = new Date().getTime();
+    <div id="countdown" class="countdown">
+      <div class="time">
+        <h2 id="days">00</h2>
+        <small>days</small>
+      </div>
+      <div class="time">
+        <h2 id="hours">00</h2>
+        <small>hours</small>
+      </div>
+      <div class="time">
+        <h2 id="minutes">00</h2>
+        <small>minutes</small>
+      </div>
+      <div class="time">
+        <h2 id="seconds">00</h2>
+        <small>seconds</small>
+      </div>
+    </div>
 
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
+    <img
+      src="./img/spinner.gif"
+      alt="Loading..."
+      id="loading"
+      class="loading"
+    />
 
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  // Display the result in the element with id="demo"
-  document.getElementById("demo").innerHTML = "Countdown to <b>New Year</b> <br>" + days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
-
-  // If the count down is finished, write some text
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
-  }
-}, 1000);
-</script>
+    <script src="script.js"></script>
+  </body>
+</html>
